@@ -50,6 +50,10 @@ public class Department {
         this.projects.add(project);
     }
 
+    public void removeProject(Project project) {
+        this.projects.remove(project);
+    }
+
     public List<String> getDevelopersNames() {
         List<String> names = new ArrayList<String>();
         for (Developer developer : this.developers) {

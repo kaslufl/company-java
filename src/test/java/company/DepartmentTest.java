@@ -82,6 +82,16 @@ class DepartmentTest {
     }
 
     @Test
+    void shouldRemoveProject() {
+        Project project = createMock(Project.class);
+        Department department = new Department("Automation");
+        department.addProject(project);
+        department.removeProject(project);
+
+        assertFalse(department.getProjects().contains(project));
+    }
+
+    @Test
     void shouldReturnProjects() {
         Project project = createMock(Project.class);
         Department department = new Department("Automation");
@@ -102,6 +112,13 @@ class DepartmentTest {
         department.addProject(project);
 
         assertTrue(department.getProjectsDescriptions().contains("Integrate customer API"));
+    }
+
+    @Test
+    void shouldReturnDescription() {
+        Department department = new Department("Automation");
+
+        assertEquals("Automation", department.getDescription());
     }
 
 }
