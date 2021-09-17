@@ -41,38 +41,6 @@ class DepartmentTest {
     }
 
     @Test
-    void shouldAddDeveloper() {
-        Developer developer = createMock(Developer.class);
-        Department department = new Department("Automation");
-        department.addDeveloper(developer);
-
-        assertTrue(department.getDevelopers().contains(developer));
-    }
-
-    @Test
-    void shouldReturnDevelopers() {
-        Developer developer = createMock(Developer.class);
-        Department department = new Department("Automation");
-        department.addDeveloper(developer);
-
-        List<Developer> developers = new ArrayList<>();
-        developers.add(developer);
-        assertEquals(developers, department.getDevelopers());
-    }
-
-    @Test
-    void shouldReturnDevelopersNames() {
-        Developer developer = createMock(Developer.class);
-        expect(developer.getName()).andReturn("Lucas");
-        replay(developer);
-
-        Department department = new Department("Automation");
-        department.addDeveloper(developer);
-
-        assertTrue(department.getDevelopersNames().contains("Lucas"));
-    }
-
-    @Test
     void shouldAddProject() {
         Project project = createMock(Project.class);
         Department department = new Department("Automation");
