@@ -32,6 +32,5 @@ class ProjectTest {
         Project project = new Project("Integrate customer API");
 
         assertEquals("Integrate customer API", project.getDescription());
-
     }
 }
