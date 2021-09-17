@@ -54,4 +54,49 @@ class BranchTest {
         assertFalse(branch.getDepartments().contains(department));
     }
 
+    @Test
+    void shouldReturnEmployees() {
+        Employee employee = createMock(Employee.class);
+
+        Branch branch = new Branch();
+        branch.addEmployee(employee);
+
+        List<Employee> employees = new ArrayList<>();
+        employees.add(employee);
+        assertEquals(employees, branch.getEmployees());
+    }
+
+    @Test
+    void shouldReturnEmployeesNames() {
+        Employee employee = createMock(Employee.class);;
+        expect(employee.getName()).andReturn("Lucas");
+        replay(employee);
+
+        Branch branch = new Branch();
+        branch.addEmployee(employee);
+
+        assertTrue(branch.getEmployeesNames().contains("Lucas"));
+    }
+
+    @Test
+    void shouldAddEmployee() {
+        Employee employee = createMock(Employee.class);
+
+        Branch branch = new Branch();
+        branch.addEmployee(employee);
+
+        assertTrue(branch.getEmployees().contains(employee));
+    }
+
+    @Test
+    void shouldRemoveEmployee() {
+        Employee employee = createMock(Employee.class);
+
+        Branch branch = new Branch();
+        branch.addEmployee(employee);
+        branch.removeEmployee(employee);
+
+        assertFalse(branch.getEmployees().contains(employee));
+    }
+
 }

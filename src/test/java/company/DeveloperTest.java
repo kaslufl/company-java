@@ -28,6 +28,13 @@ class DeveloperTest {
         catch (NullPointerException e) {
             assertEquals("A department needs to be given.", e.getMessage());
         }
+    }
 
+    @Test
+    void shouldReturnDepartment() {
+        Department department = createMock(Department.class);
+        Developer developer = new Developer("Lucas", department);
+
+        assertEquals(department, developer.getDepartment());
     }
 }
